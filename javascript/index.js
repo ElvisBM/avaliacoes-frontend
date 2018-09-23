@@ -1,6 +1,8 @@
 console.log('Yet another Hello world');
 
 var map = null;
+var markers = [];
+
 
 placesOfInterest = [
     { name: 'Charme da paulista', lat: -23.562172, lng: -46.655794 },
@@ -26,12 +28,45 @@ const customIcon = {
     strokeWeight: 3
 };
 
+const customIconActive = {
+    path: 'M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z',
+    fillColor: '#fff',
+    fillOpacity: 0.98,
+    scale: 0.98,
+    strokeColor: '#666666',
+    strokeWeight: 3
+};
+
 function addMarker(marker) {
     var marker = new google.maps.Marker({
         map: map,
         position: new google.maps.LatLng(marker.lat, marker.lng),
         icon: customIcon,
         title: marker.name
+    });
+
+    //Adiciona o title ao infowindow//popup 
+    marker['infowindow'] = new google.maps.InfoWindow({
+        content: '<strong>'+ marker.title + '</strong>',
+    });
+
+    //Click do marker//place abre o infowind//popup e fecha todos os outros
+    var i;
+    google.maps.event.addListener(marker, 'click', (function (marker, i) {
+        return function () {
+            for (var j = 0; j < markers.length; j++) {
+                markers[j].setIcon(customIcon); 
+                markers[j]['infowindow'].close(map, this);
+            }
+            marker.setIcon(customIconActive);
+            marker['infowindow'].open(map, this);
+        };
+    })(marker, i));
+    markers.push(marker);
+
+    //Close infowindo volta o icon do marker
+    google.maps.event.addListener(marker['infowindow'],'closeclick',function(){
+        marker.setIcon(customIcon); 
     });
 };
 
