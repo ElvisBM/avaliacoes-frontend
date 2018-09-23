@@ -84,7 +84,6 @@ function initMap() {
         zoomControlOptions: {
             style: google.maps.ZoomControlStyle.DEFAULT,
         }
-
     };
 
     map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -95,6 +94,15 @@ function initMap() {
        addMarker(place);
     };
 
+    //Adicionado btn para ir para localização do usuário
+    var btnGeo = document.getElementById('btngeolocation');
+    btnGeo.addEventListener( 'click', function(event) {
+        geolocation(map);
+    });
+}
+
+//Busca a Localização do usuário e mostra no mapa.
+function geolocation(map){
     //Adicionado GeoLocalização
     var infoWindow = new google.maps.InfoWindow;
     // Try HTML5 geolocation.

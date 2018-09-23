@@ -13,3 +13,22 @@ body {
     width: 100%;
     height: 100%;
 }
+
+#btngeolocation{
+	position: absolute;
+    z-index: 999;
+    bottom: 50px;
+    left: 20px;
+    border: 0px;
+    background: #f5bb33;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 11px;
+    font-weight: bold;
+    cursor:pointer;
+}
+
+#btngeolocation:hover{
+	background: #fff;
+    color: #f5bb33;
+}
