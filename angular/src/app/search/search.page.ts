@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LEGENDS } from '../names/nameslist';
 
 @Component({
   selector: 'app-search',
@@ -12,8 +13,14 @@ export class SearchPage {
   ngOnInit() {
   }
 
-  onSearch() {
-    console.log(`Search: ${this.searchInput}`)
-    
+  onChange() {
+    console.log(`Search: ${this.searchInput}`);
+    if(this.searchInput.length >= 1 ){
+      this.results = LEGENDS.filter( it => {
+        return it.toLowerCase().includes(this.searchInput.toLowerCase());
+      }); 
+    }else{
+      this.results = [];
+    }
   }
 }

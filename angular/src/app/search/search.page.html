@@ -8,7 +8,7 @@
       mode="ios" 
       placeholder="Search for a legend"
       animated 
-      (ionInput)="onSearch($event)"
+      (ionChange)="onChange($event)"
       (ionClear)="searchInput = '';"
       [(ngModel)]="searchInput">
 
@@ -19,3 +19,8 @@
 <ion-content padding>
   <p>Showing <b>{{results.length}}</b> Results for: <b>{{searchInput}}</b></p><br />
 </ion-content>
+<ion-item lines="full" *ngFor="let result of results">
+  <ion-label>
+   {{ result }}
+  </ion-label>
+</ion-item>
