@@ -3,16 +3,20 @@
 ## Javascript Questão 2:
 
 ### a) No import da api do google maps no index.html, para que servem as tags async e defer?
-R: 
+R: Servem para controlar o momento do carregamento e execução dos scripts sem interromper o carregamento do html, async: carrega e executa o script de forma assíncrona, defer: carrega o script de forma assíncrona, porém executa após o html carregar.
+
 
 ### b) Para que serve o parâmetro &callback=initMap na url da api do google maps?
-R: 
+R: Para passar os paramentros do mapa, para a API do Maps que foi chamada.
 
 ### c) O que acontece quando removemos o parâmetro &callback=initMap da url da api do google maps? Explique o porque.
-R: 
+R: Ele não carrega o mapa do google, pois o initMap é o callback que passa as configurações, onde o mapa deve carregar, quais pontos serão mostrada e todas as infos do map que queremos visualizar.
 
 ### d) Descreva pelo menos uma forma de como podemos fazer com que a aplicação funcione corretamente mesmo sem este parâmetro.
-R: 
+R: sem o init Map vai precisar carregar o mapa e no load da página adicionar o evento e passar as configurações. <code>google.maps.event.addDomListener(window, 'load', initialize);</code>
+* [exemplo que eu fiz]( https://github.com/Amarelo-Manga/wp-theme-arena-movistar/blob/master/assets/scripts/main.js)
+
+
 
 ### e) Explique para que servem as seguintes tags do index.html: 
   `<link rel="manifest" href="manifest.json">
@@ -20,10 +24,16 @@ R:
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">`
 
-R:
+R:`<link rel="manifest" href="manifest.json">` - Server para dizer qual o comportamento do site/app, como salvar o site na tela do celular e definir um logo para o mesmo.
+
+`<meta name="theme-color" content="">` - Personaliza a cor da aba no navegador no qual o site foi aberto.
+
+`<meta name="apple-mobile-web-app-capable" content="yes">` -  Colocar o site em tela cheias em mobiles/tables Apple, depois de instalado.
+
+`<meta name="apple-mobile-web-app-status-bar-style" content="black">` - Para se o site rodar como APP ou site Automono ele retira a barra do APPle e o site fica em tela cheia.
 
 ### f) Está aplicação pode ser considerada um PWA? Em caso negativo, explique o que falta para que seja.
-R:
+R:Não, Falta o service-work eo manifest.
 
 
 ## Angular Questão 4:
