@@ -3,7 +3,6 @@ console.log('Yet another Hello world');
 var map = null;
 var markers = [];
 
-
 placesOfInterest = [
     { name: 'Charme da paulista', lat: -23.562172, lng: -46.655794 },
     { name: 'The Blue Pub', lat: -23.563112, lng: -46.650338 },
@@ -94,5 +93,27 @@ function initMap() {
     //addMarker(placesOfInterest[0]);
     for (let place of placesOfInterest) {
        addMarker(place);
+    };
+
+    //Adicionado GeoLocalização
+    var infoWindow = new google.maps.InfoWindow;
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Sua localização :)');
+            infoWindow.open(map);
+            map.setCenter(pos);
+        }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
     };
 }
