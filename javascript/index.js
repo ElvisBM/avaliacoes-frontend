@@ -33,7 +33,7 @@ function addMarker(marker) {
         icon: customIcon,
         title: marker.name
     });
-}
+};
 
 function initMap() {
     var mapOptions = {
@@ -56,5 +56,8 @@ function initMap() {
     map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
     //Adicionando o primeiro marcador como exemplo
-    addMarker(placesOfInterest[0]);
+    //addMarker(placesOfInterest[0]);
+    for (let place of placesOfInterest) {
+       addMarker(place);
+    };
 }
