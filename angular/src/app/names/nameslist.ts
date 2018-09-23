@@ -1,4 +1,4 @@
-export const legends = [
+export const LEGENDS = [
     'Jimmy Page',
     'Micky Jagger',
     'Angus Young',
@@ -21,5 +21,4 @@ export const legends = [
     'John Bonham',
     'John Paul Jones',
     'Freddie Mercury'
-
 ]
