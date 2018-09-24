@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoadingControlle } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 import * as _ from 'lodash';
 
 @Component({
@@ -10,28 +10,25 @@ import * as _ from 'lodash';
 export class HomePage {
   loading;
   photos: Array<string> = [];
-  public loadingController: LoadingController;
 
-  constructor() {
+  constructor(public loadingCtrl: LoadingController){
   }
 
   ngOnInit() {
     this.printOnConsole();
     this.presentLoading();
 
-
     this.randomPhotos();
 
     setTimeout( () => {
       try {
-        dismissLoading();
+        this.dismissLoading();
       } catch(err) {
         console.error(err);
         alert('Error dismissing loader');
       }
       
     }, 5000)
-    
   }
 
   randomPhotos() {
@@ -44,7 +41,7 @@ export class HomePage {
   }
 
   async presentLoading() {
-    this.loading = await this.loadingController.create({
+    this.loading = await this.loadingCtrl.create({
       spinner: 'dots',
       message: 'Please wait...'
     });
