@@ -1,5 +1,4 @@
 # Folha de respostas
-
 ## Javascript Questão 2:
 
 ### a) No import da api do google maps no index.html, para que servem as tags async e defer?
@@ -83,3 +82,6 @@ R: `async` - carregar o conteudo assicrono no momento do carregamento.
 R:é um import da biblioteca lodash, que ajuda a trabalhar com arrays, numbers, objects e afins, ajudando o código ficar menos complexo e a manipulação mais fácil.
 Está sendo usado no dismissLoading, para verificar se o retorno do this.loading é null.
 * [Porém deixou uma ressalva que talvez o ES5 e ES6, possa não precisar disso, referência]( https://tableless.com.br/lodash-ou-underscore-talvez-nenhum)
+
+## Observação:
+* Está faltando duas funcionalidades do APP angular, o botão editar funciona, torna o nome em editável, aparece o botão salvar e fechar, porém ainda não está salvando na lista e o reordenar ainda não está ordenando, mas pretendo commitar.
