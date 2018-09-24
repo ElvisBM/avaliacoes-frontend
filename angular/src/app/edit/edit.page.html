@@ -1,21 +1,31 @@
 <ion-header>
-  <ion-toolbar color="tertiary">
-    <ion-title>
-      Edit
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="tertiary">
+        <ion-title>
+            Edit
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
-
 <ion-content padding>
-  <ion-grid>
-    <ion-row>
-      <ion-col size="6" offset="3">
-        <ion-list>
-          <ion-list-header>
-            <ion-label>List of Names</ion-label>
-          </ion-list-header>
-        </ion-list>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="6" offset="3">
+                <ion-list>
+                    <ion-list-header>
+                        <ion-label>List of Names</ion-label>
+                        <button  (click)="toggleEdit()" class="btnReorde">reorder</button>
+                    </ion-list-header>
+                    <ion-item-group>
+                        <ion-item lines="full" *ngFor="let legend of legends;let i = index" >
+                            <ion-label>
+                                <input class="inputEdit" [disabled]="isDisabled !== false && isIndex !== i" value="{{ legend }}" type="text" />
+                            </ion-label>
+                            <button (click)="onEdit('show', i)" [hidden]="!(isDisabled !== false && isIndex !== i)" class="btn" >Edit</button>
+                            <button (click)="onClose()" [hidden]="isDisabled !== false && isIndex !== i" class="btnClose" >x</button>
+                            <button (click)="onSave('show', i)" [hidden]="isDisabled !== false && isIndex !== i" class="btn" >Save</button>
+                        </ion-item>
+                    </ion-item-group>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>
