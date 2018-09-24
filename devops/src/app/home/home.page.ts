@@ -10,11 +10,9 @@ import * as _ from 'lodash';
 export class HomePage {
   loading;
   photos: Array<string> = [];
+  public loadingController: LoadingController;
 
-  constructor(
-    public loadingController: LoadingController
-  ) {
-
+  constructor() {
   }
 
   ngOnInit() {
