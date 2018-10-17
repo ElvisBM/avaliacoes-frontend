@@ -84,4 +84,6 @@ Está sendo usado no dismissLoading, para verificar se o retorno do this.loading
 * [Porém deixou uma ressalva que talvez o ES5 e ES6, possa não precisar disso, referência]( https://tableless.com.br/lodash-ou-underscore-talvez-nenhum)
 
 ## Observação:
-* Está faltando duas funcionalidades do APP angular, o botão editar funciona, torna o nome em editável, aparece o botão salvar e fechar, porém ainda não está salvando na lista e o reordenar ainda não está ordenando, mas pretendo commitar.
+* ~~Está faltando duas funcionalidades do APP angular, o botão editar funciona, torna o nome em editável, aparece o botão salvar e fechar, porém ainda não está salvando na lista e o reordenar ainda não está ordenando, mas pretendo commitar.~~
+
+* Falta apenas a reordenação da lista.
