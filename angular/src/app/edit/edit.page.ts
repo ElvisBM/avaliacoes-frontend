@@ -12,27 +12,26 @@ export class EditPage {
     isIndex:  String = '';
 
 	constructor() {
-	    
 	}
 
     onEdit(param, index) {
-        console.log(param);
-        console.log(index);
-
         this.isIndex = index;
         this.isDisabled = true;
     }
 
-    onClose() {
+    onClose( legend, classe ) {
+  		document.querySelector(classe).value = legend;
         this.isIndex = '';
     }
 
-    onSave(param, index) {
-        this.isIndex = '';
-        alert('ainda não está salvando :/');
-    }
+    onSave( legend, value  ) {
 
-    toggleEdit(){
-        alert('ainda não está reordenando :/');
+ 		//Busca o index do Nome a ser alterado
+   		let item = this.legends.indexOf( legend );  
+
+   		//Altera para o valor atual
+   		this.legends[item] = value;
+
+    	this.isIndex = '';
     }
 }

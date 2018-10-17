@@ -12,18 +12,19 @@
                 <ion-list>
                     <ion-list-header>
                         <ion-label>List of Names</ion-label>
-                        <button  (click)="toggleEdit()" class="btnReorde">reorder</button>
+                        <button  (click)="reorderItems($events)" class="btnReorde">reorder</button>
                     </ion-list-header>
-                    <ion-item-group>
-                        <ion-item lines="full" *ngFor="let legend of legends;let i = index" >
+                    <ion-reorder-group>
+                        <ion-item lines="full" *ngFor="let legend of legends;let i = index;" >
+                        	<ion-reorder slot="start"></ion-reorder>
                             <ion-label>
-                                <input class="inputEdit" [disabled]="isDisabled !== false && isIndex !== i" value="{{ legend }}" type="text" />
+                                <input class="inputEdit edit{{i}}" [ngModel]="legends[i]" [disabled]="isDisabled !== false && isIndex !== i" type="text"  #change>
                             </ion-label>
                             <button (click)="onEdit('show', i)" [hidden]="!(isDisabled !== false && isIndex !== i)" class="btn" >Edit</button>
-                            <button (click)="onClose()" [hidden]="isDisabled !== false && isIndex !== i" class="btnClose" >x</button>
-                            <button (click)="onSave('show', i)" [hidden]="isDisabled !== false && isIndex !== i" class="btn" >Save</button>
+                            <button (click)="onClose( legend, '.edit'+i )" [hidden]="isDisabled !== false && isIndex !== i" class="btnClose" >x</button>
+                            <button (click)="onSave( legend, change.value )" [hidden]="isDisabled !== false && isIndex !== i" class="btn" >Save</button>
                         </ion-item>
-                    </ion-item-group>
+                    </ion-reorder-group>
                 </ion-list>
             </ion-col>
         </ion-row>
