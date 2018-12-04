@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { LEGENDS } from '../names/nameslist';
+import { ItemReorderGesture, ItemReorderGestureDelegate } from './item-reorder-gesture';
+import { isTrueProperty, reorderArray } from '../../util/util';
 
 @Component({
   selector: 'app-edit',
@@ -34,4 +36,11 @@ export class EditPage {
 
     	this.isIndex = '';
     }
+
+    reorderItems(indexes) {
+	    let element = this.legends[indexes.from];
+	    this.legends.splice(indexes.from, 1);
+	    this.legends.splice(indexes.to, 0, element);
+	 }
+
 }
